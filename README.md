@@ -1,116 +1,139 @@
-<div align="center">
-  <img src="website/img/banner.png" alt="ByteBazaar Banner" width="100%">
+# 🛒 BytBazaare — Full Stack E-Commerce Platform
 
-  # ByteBazaar
-  
-  **A Modern E-commerce Platform for Computer Parts & Accessories**
+![PHP](https://img.shields.io/badge/PHP-8.0+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-  [![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
-  [![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
-  [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.0-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-  [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-  [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-
-  [View Demo](#) • [Report Bug](https://github.com/adilchagri/ByteBazaar/issues) • [Request Feature](https://github.com/adilchagri/ByteBazaar/issues)
-</div>
+> A secure, feature-rich digital marketplace built from scratch — covering product management, user authentication, cart system, and payment flows.
 
 ---
 
-## 🚀 Overview
+## ✨ Features
 
-**ByteBazaar** is a fully functional e-commerce solution designed to provide a seamless shopping experience. Built with a robust PHP backend and a responsive frontend, it features a comprehensive admin dashboard, secure user authentication, and an intuitive shopping cart system.
+- 🔐 **Secure Authentication** — Registration, login, session management with hashed passwords
+- 🛍️ **Product Catalog** — Multi-category product management with search and filtering
+- 🛒 **Shopping Cart** — Real-time cart updates, quantity management, persistent sessions
+- 💳 **Payment Flow** — Secure checkout process with order confirmation
+- 👤 **User Dashboard** — Order history, profile management
+- 📦 **Admin Panel** — Product CRUD, inventory management, order tracking
+- 📱 **Responsive Design** — Mobile-first with Bootstrap 5
 
-## ✨ Key Features
+---
 
-| Feature | Description |
-|---------|-------------|
-| 🛒 **Shopping Cart** | Intuitive add-to-cart, update quantities, and checkout flow. |
-| 🛡️ **Admin Panel** | Complete control over products, orders, users, and reviews. |
-| 👤 **User Accounts** | Secure registration, login, profile management, and order history. |
-| ⭐ **Reviews & Ratings** | Interactive product feedback system for customers. |
-| 📱 **Responsive Design** | Optimized for desktop, tablet, and mobile devices. |
-| 🔍 **Advanced Search** | Find products quickly with category filtering and search. |
+## 🛠️ Tech Stack
 
-## 🛠️ Technology Stack
+| Layer | Technology |
+|-------|-----------|
+| Backend | PHP 8.0, MVC Architecture |
+| Database | MySQL with optimized queries |
+| Frontend | HTML5, CSS3, JavaScript ES6, Bootstrap 5 |
+| Security | PDO prepared statements, CSRF protection, bcrypt hashing |
 
-- **Backend:** PHP (Native)
-- **Database:** MySQL
-- **Frontend:** HTML5, CSS3, JavaScript, Bootstrap, FontAwesome
-- **Server:** Apache (XAMPP/WAMP recommended)
+---
 
-## ⚡ Installation & Setup
+## 📁 Project Structure
 
-Follow these steps to get ByteBazaar running on your local machine.
+```
+bytbazaare/
+├── index.php              # Entry point & router
+├── config/
+│   └── db.php             # Database configuration
+├── controllers/
+│   ├── AuthController.php
+│   ├── ProductController.php
+│   ├── CartController.php
+│   └── OrderController.php
+├── models/
+│   ├── User.php
+│   ├── Product.php
+│   └── Order.php
+├── views/
+│   ├── auth/
+│   ├── products/
+│   ├── cart/
+│   └── admin/
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── images/
+└── database/
+    └── schema.sql
+```
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-- [XAMPP](https://www.apachefriends.org/) or [WAMP](https://www.wampserver.com/en/) installed.
-- Git installed.
 
-### Steps
+- PHP 8.0+
+- MySQL 5.7+ or MariaDB
+- Apache/Nginx web server (or XAMPP/WAMP for local dev)
 
-1.  **Clone the Repository**
-    ```bash
-    git clone https://github.com/adilchagri/ByteBazaar.git
-    ```
+### Installation
 
-2.  **Move to Server Directory**
-    Move the project folder to your web server's root directory:
-    - XAMPP: `C:\xampp\htdocs\`
-    - WAMP: `C:\wamp64\www\`
+```bash
+# 1. Clone the repository
+git clone https://github.com/Adilchagri/bytbazaare.git
+cd bytbazaare
 
-3.  **Database Setup**
-    - Open phpMyAdmin (`http://localhost/phpmyadmin`).
-    - Create a new database named **`bytebazaar`**.
-    - Import the SQL file located at root: **`bytebazaar (1).sql`**.
+# 2. Set up database
+mysql -u root -p < database/schema.sql
 
-4.  **Configuration**
-    - Open `website/include/connect.php`.
-    - Verify your database credentials (default is usually `root` with no password):
-      ```php
-      $con = mysqli_connect('localhost', 'root', '', 'bytebazaar');
-      ```
+# 3. Configure database connection
+cp config/db.example.php config/db.php
+# Edit config/db.php with your credentials
 
-5.  **Run the Application**
-    - Open your browser and visit:
-      ```
-      http://localhost/ByteBazaar
-      ```
-    - **Admin Panel**: `http://localhost/ByteBazaar/admin.php`
-
-## 📂 Project Structure
-
-```
-ByteBazaar/
-├── website/            # Main website assets (img, include)
-├── admin.php           # Admin dashboard entry
-├── index.php           # Homepage
-├── shop.php            # Product catalog
-├── cart.php            # Shopping cart
-├── checkout.php        # Order processing
-├── bytebazaar (1).sql  # Database dump
-└── README.md           # Documentation
+# 4. Set up web server
+# Point document root to project folder
+# OR use PHP built-in server:
+php -S localhost:8000
 ```
 
-## 🤝 Contributing
+### Configuration
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+```php
+// config/db.php
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'bytbazaare');
+define('DB_USER', 'your_username');
+define('DB_PASS', 'your_password');
+```
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+---
+
+## 🗄️ Database Schema
+
+Key tables:
+- `users` — user accounts with hashed passwords
+- `products` — product catalog with categories, pricing, stock
+- `cart_items` — session-linked cart management
+- `orders` + `order_items` — order history and line items
+
+---
+
+## 🔒 Security Features
+
+- **SQL Injection Prevention** — All queries use PDO prepared statements
+- **XSS Protection** — Output escaping with `htmlspecialchars()`
+- **CSRF Tokens** — Form submissions protected against cross-site request forgery
+- **Password Hashing** — bcrypt via `password_hash()` / `password_verify()`
+
+---
+
+## 📸 Screenshots
+
+> Coming soon — demo deployment in progress
+
+---
+
+## 👤 Author
+
+**Adil Chagri** — [github.com/Adilchagri](https://github.com/Adilchagri) | [linkedin.com/in/adilchagri](https://linkedin.com/in/adilchagri)
+
+---
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## 👨‍💻 Author
-
-**Adil Chagri**
-- GitHub: [@adilchagri](https://github.com/adilchagri)
-
----
-<div align="center">
-  Made with ❤️ by Adil Chagri
-</div>
+MIT License
